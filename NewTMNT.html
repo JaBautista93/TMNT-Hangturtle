@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="css/css.style"></script> -->
+    <!-- link jQuery -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous"> -->
+
+    <head>
+        <meta charset="UTF-8">
+        <title>TMNT: Save Splinter from Shredders Evil Plans!</title>
+      </head>
+      
+      <body>
+      <div class= "top containter">
+      
+          <p id="directions-text">Guess the name of one of turtles nemesis that abducted Master Splinter!</p>
+      </div>
+          <p id="Turtles-text"></p>
+          <p id="Henchman-text"></p>
+          <p id="wins-text"></p>
+          <p id="losses-text"></p>
+          <p id="ties-text"></p>
+        </div>
+<script>
+
+// Create variables that hold references to the places in the HTML where we want to display things.
+    var directionsText = document.getElementById("directions-text");
+    var TurtlesText = document.getElementById("Turtles-text");
+    var HenchmanText = document.getElementById("Henchman-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var tiesText = document.getElementById("ties-text");
+
+var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash", 
+"Baxter Stockman", "General Traag", "Tokka", "Razhar","Dragon Lord", 
+"Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface", 
+"Hun", "Triceratons"];
+
+let userpushkey = [];
+let underScore = [];
+
+//process for selecting and underlining words
+let randNum = [Math.floor(Math.random() * Henchman.length)]; 
+console.log(randNum);
+let choosenWord = Henchman[randNum];
+console.log(choosenWord);
+
+//This function is run whenever the user presses a key.
+document.onkeyup = function(event) {
+
+// Determines which key was pressed.
+var userGuess = event.key;
+// Guessed Letter
+userpushkey.push(userGuess);
+HenchmanText.textContent=userpushkey;
+
+//creating underscores based on lenght of word website 1:07
+// let generateUnderscore = () => {
+//         for (let i = 0; i < choosenWord.length; i++) {
+//          underScore.push('_');
+//          HenchmanText.textContent = underScore;
+//         }
+//         return underScore;
+// }
+//Users Guess
+// document.addEventListener('keypress', (event) => {
+//     let henchGuess =String.fromCharCode(event.henchGuess);
+// //if Users gues is right
+//     if(choosenWord.indexOf(henchGuess) > -1) {
+//         // add to the right words array
+//        rightWord.push(henchGuess);
+//         // replace underscore with right letter
+//         underScore[choosenWord.indexOf(henchGuess)] = henchGuess;
+//         // checks to see if user word matches guesses
+//         if(underScore.join('') == choosenWord) {
+//             alert('You win');
+//         }
+//     }
+     
+};
+
+</script>
+</html>

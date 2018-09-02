@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,124 +9,162 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!-- <script src="css/css.style"></script> -->
     <!-- link jQuery -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
 
     <head>
         <meta charset="UTF-8">
         <title>TMNT: Save Splinter from Shredders Evil Plans!</title>
-      </head>
-      
-      <body>
-      <div class= "top containter">
-      
-          <p id="directions-text">Guess the name of one of turtles nemesis that abducted Master Splinter!</p>
-      </div>
-          <p id="Turtles-text"></p>
-          <p id="Henchman-text"></p>
-          <p id="wins-text"></p>
-          <p id="losses-text"></p>
-          <p id="ties-text"></p>
-        </div>
-<script>
+    </head>
 
- //Create variables that hold references to the places in the HTML where we want to display things.
-    var directionsText = document.getElementById("directions-text");
-    var TurtlesText = document.getElementById("Turtles-text");
-    var HenchmanText = document.getElementById("Henchman-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var tiesText = document.getElementById("ties-text");
+<body>
+    <div class="top containter">
 
-// this array contains our henchman for the game
-var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash", 
-"Baxter Stockman", "General Traag", "Tokka", "Razhar","Dragon Lord", 
-"Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface", 
-"Hun", "Triceratons"];
+        <p id="directions-text">Guess the name of one of turtles nemesis that abducted Master Splinter!</p>
+    </div>
+    <p id="Turtles-text"></p>
+    <p id="Henchman-text"></p>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <p id="ties-text"></p>
+    </div>
+    <script>
+        //Create variables that hold references to the places in the HTML where we want to display things.
+        var directionsText = document.getElementById("directions-text");
+        var TurtlesText = document.getElementById("Turtles-text");
+        var HenchmanText = document.getElementById("Henchman-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+        var guessesleft = document.getElementById("guesses-left")
 
-// this variable will count the number of times we win
-var winsText = 0;
-var resetGuess = ""
+        // this array contains our henchman for the game
+        var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash",
+            "Baxter Stockman", "General Traag", "Tokka", "Razhar", "Dragon Lord",
+            "Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface",
+            "Hun", "Triceratons"
+        ];
 
-//this is empty arrays to push blanks to the page
-let userpushkey = [];
+        //this variable will holds the number of guess left
+        var guessesleft = 10;
 
-//this is empty array to push the letters from the current word choosen
-let underScore = [];
 
-//process for selecting word
-let randNum = [Math.floor(Math.random() * Henchman.length)]; 
-console.log(randNum);
-let choosenWord = Henchman[randNum];
-console.log(choosenWord.toUpperCase());
+        // this variable will count the number of times we win
+        var winsText = 0;
+        var resetGuess = ""
 
-//creating underscores based on lenght of word website 1:07
-for (var i = 0; i < choosenWord.length; i++) {
-        underScore.push("_");
-        underScore.toString()
-        document.getElementById("Henchman-text").innerHTML = underScore.join(" "); 
-};
+
+
+        //this is empty array to push the letters from the current word choosen
+        let underScore = [];
+
+        //this is empty arrays to push blanks to the page
+        let userpushkey = [];
+
+        //process for selecting word
+        let randNum = [Math.floor(Math.random() * Henchman.length)];
+        console.log(randNum);
+        let choosenWord = Henchman[randNum];
+        console.log(choosenWord.toUpperCase());
+
+        //creating underscores based on lenght of word website 1:07
+        for (var i = 0; i < choosenWord.length; i++) {
+            underScore.push("_");
+            underScore.toString()
+            document.getElementById("Henchman-text").innerHTML = underScore.join(" ");
+        };
         console.log(underScore);
 
-//This function is run whenever the user presses a key.
-document.onkeyup = function(event) {
+        //Determines which key was pressed.
+        document.onkeyup = function(event) {
+        var userGuess = event.key;
+        console.log(userGuess);
+        userpushkey.push(userGuess);
+        userpushkey.toString()
+        document.getElementById("Turtles-text").innerHTML = userpushkey.join(" ");
 
-// Determines which key was pressed.
-var userGuess = event.key;
-console.log(userGuess);
+        //game alert logic
+        document.onkeyup = function (event) {
+            letter = event.keyCode;
+            userpushkey = String.fromCharCode(letter);
+            console.log(userpushkey);
 
-// Guessed Letter
-userpushkey.push(userGuess);
+            //This will alert correct and compare the letter guessed with the current word
+            if (userpushkey === underScore[0] || userpushkey === underScore[1] ||
+                userpushkey === underScore[2] || userpushkey === underScore[3] ||
+                userpushkey === underScore[4] || userpushkey === underScore[5] ||
+                userpushkey === underScore[6] || userpushkey === underScore[7] ||
+                userpushkey === underScore[8] || userpushkey === underScore[9] ||
+                userpushkey === underScore[10] || userpushkey === underScore[11] ||
+                userpushkey === underScore[12] || userpushkey === underScore[13] ||
+                userpushkey === underScore[14] || userpushkey === underScore[15] ||
+                userpushkey === underScore[16] || userpushkey === underScore[17] ||
+                userpushkey === underScore[18] || userpushkey === underScore[19] ||
+                userpushkey === underScore[20]) {
+                // alert("CORRECT!");
 
-//document.onkeyup = function(onKeyUp) {
-//        letter = onKeyUp.keyCode;
-//        lettersGuessed = String.fromCharCode(letter);
-//        console.log(lettersGuessed);
+                // replace progress Word underscore with letter pressed
+                document.getElementById("Henchman-Text").innerHTML = underScore.join(" ");
+            } else {
+                alert("WRONG!");
+                document.getElementById("Turtle-text").innerHTML += userpushkey + " ";
 
-// This will alert correct and compare the letter guessed with the current word
-//if (userpushkey === underScore[0] || userpushkey === underScore[1] ||
-//            userpushkey === underScore[2] || userpushkey === underScore[3] ||
-//            userpushkey === underScore[4] || userpushkey === underScore[5] ||
-//            userpushkey === underScore[6] || userpushkey === underScore[7] ||
-//            userpushkey === underScore[8] || userpushkey === underScore[9] ||
-//            userpushkey === underScore[10] || userpushkey === underScore[11] ||
-//            userpushkey === underScore[12] || userpushkey === underScore[13] ||
-//            userpushkey === underScore[14] || userpushkey === underScore[15] ||
-//            userpushkey === underScore[16] || userpushkey === underScore[17] ||
-//            userpushkey === underScore[18] || userpushkey === underScore[19] ||
-//            userpushkey === underScore[20]) {
-            // alert("CORRECT!");
-//Users Guess
-// document.addEventListener('keypress', (event) => {
-//     let henchGuess =String.fromCharCode(event.henchGuess);
-// //if Users gues is right
-//     if(choosenWord.indexOf(henchGuess) > -1) {
-//         // add to the right words array
-//        rightWord.push(henchGuess);
-//         // replace underscore with right letter
-//         underScore[choosenWord.indexOf(henchGuess)] = henchGuess;
-//         // checks to see if user word matches guesses
-//         if(underScore.join('') == choosenWord) {
-//             alert('You win');
-//         }
-//     }
-// how to replace blanks with words
-//const words = ['John', 'Jacob', 'Jingleheimersmith']
+                // subtract a point from guesses left
+                guessesLeft--;
+                document.getElementById("guesses-left").innerHTML = guessesLeft;
+            }
 
-//function chooseWord(array) {
-//  return array[Math.floor(Math.random() * array.length)].toUpperCase()
-//}
+            //This code will tell the user the game is over along with a message about
+            // their win streak, then it will reset the game while quickly showing 
+            // what the word was
+            if (guessesLeft === 0) {
+                alert("Game Over Turtles! Now for some Turtle Soup " + winsText + " wins! The henchman was " +
+                    choosenWord);
+                location.reload();
+                document.getElementById("word-guess").innerHTML = choosenWord;
+            }
 
-//function fillInWordWithLetter(letter, word) {
-//  return word.toLowerCase().split('').map(l =>  {
-//    if (l === letter) {
-//      return l.toUpperCase()
-    //}
-//    return '_'
-//  }).join(' ')
-//}
+            // this is the code that alerts you when you've won the game, then it will reset 
+            // the current word to begin another round
+            if (userpushkey === underScore) {
+                var phrases = ['Cowabunga!', 'Do not mess with Lean mean Turtles!', 'No Pizza for you Bro!',
+                    'Should we go after?!? or Just let go cry to Shredder?!', 'We did it guys!',
+                    'Turtleeee-Power!', 'Now you know about our Turtle-foo, come back for seconds anytime!'
+                ]
+                var nextRound = phrases[Math.floor(Math.random() * phrases.length)];
+                alert(nextRound);
 
-//fillInWordWithLetter('j', chooseWord(words))
-}
+                // reset guesses left
+                guessesLeft = 10;
+                //document.getElementById("guesses-left").innerHTML = guessesLeft;
 
-</script>
+                // reset letters guessed
+                //document.getElementById("letters-guessed").innerHTML = resetLettersGuessed;
+
+                // This code generates a new word to guess and then pushes out the blanks again
+                //choosenWord = Henchman[Math.floor(Math.random() * Henchman.length)].toUpperCase();
+
+                //underScore = [];
+                //for (var i = 0; i < choosenWord.length; i++) {
+                //underScore.push("__");
+                //underScore.toString()
+                //document.getElementById("word-guess").innerHTML = progressWord.join(" ");
+                //}
+
+                //mysteryWord = []
+                //for (var i = 0; i < currentWord.length; i++) {
+                //  mysteryWord.push(currentWord.charAt(i));
+                //   mysteryWord.toString(i)
+                // }
+                //console.log(currentWord);
+                //console.log(progressWord);
+                //console.log(mysteryWord);
+
+                // Add to the win total
+                winsText++;
+                document.getElementById("wins-text").innerHTML = winsText;
+            }
+        }}
+    </script>
+
 </html>

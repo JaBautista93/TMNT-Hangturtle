@@ -36,19 +36,37 @@
     var lossesText = document.getElementById("losses-text");
     var tiesText = document.getElementById("ties-text");
 
+// this array contains our henchman for the game
 var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash", 
 "Baxter Stockman", "General Traag", "Tokka", "Razhar","Dragon Lord", 
 "Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface", 
 "Hun", "Triceratons"];
 
+// this variable will count the number of times we win
+var winsText = 0;
+
+var resetGuess = ""
+
+//this is empty arrays to push blanks to the page
 let userpushkey = [];
+
+//this is empty array to push the letters from the current word choosen
 let underScore = [];
 
-//process for selecting and underlining words
+//process for selecting word
 let randNum = [Math.floor(Math.random() * Henchman.length)]; 
 console.log(randNum);
 let choosenWord = Henchman[randNum];
-console.log(choosenWord);
+console.log(choosenWord.toUpperCase());
+
+//creating underscores based on lenght of word website 1:07
+    for (var i = 0; i < choosenWord.length; index++) {
+        underScore.push("_");
+        underScore.toString()
+        document.getElementById("Henchman-text").innerHTML = underScore.join(" "); 
+        }
+console.log(underScore);
+           
 
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
@@ -59,14 +77,7 @@ var userGuess = event.key;
 userpushkey.push(userGuess);
 HenchmanText.textContent=userpushkey;
 
-//creating underscores based on lenght of word website 1:07
-// let generateUnderscore = () => {
-//         for (let i = 0; i < choosenWord.length; i++) {
-//          underScore.push('_');
-//          HenchmanText.textContent = underScore;
-//         }
-//         return underScore;
-// }
+
 //Users Guess
 // document.addEventListener('keypress', (event) => {
 //     let henchGuess =String.fromCharCode(event.henchGuess);
@@ -81,6 +92,23 @@ HenchmanText.textContent=userpushkey;
 //             alert('You win');
 //         }
 //     }
+// how to replace blanks with words
+//const words = ['John', 'Jacob', 'Jingleheimersmith']
+
+//function chooseWord(array) {
+//  return array[Math.floor(Math.random() * array.length)].toUpperCase()
+//}
+
+//function fillInWordWithLetter(letter, word) {
+//  return word.toLowerCase().split('').map(l =>  {
+//    if (l === letter) {
+//      return l.toUpperCase()
+    //}
+//    return '_'
+//  }).join(' ')
+//}
+
+//fillInWordWithLetter('j', chooseWord(words))
      
 };
 

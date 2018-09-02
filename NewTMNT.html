@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!-- <script src="css/css.style"></script> -->
     <!-- link jQuery -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous"> 
 
     <head>
         <meta charset="UTF-8">
@@ -28,7 +28,7 @@
         </div>
 <script>
 
-// Create variables that hold references to the places in the HTML where we want to display things.
+ //Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
     var TurtlesText = document.getElementById("Turtles-text");
     var HenchmanText = document.getElementById("Henchman-text");
@@ -44,7 +44,6 @@ var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash",
 
 // this variable will count the number of times we win
 var winsText = 0;
-
 var resetGuess = ""
 
 //this is empty arrays to push blanks to the page
@@ -60,24 +59,41 @@ let choosenWord = Henchman[randNum];
 console.log(choosenWord.toUpperCase());
 
 //creating underscores based on lenght of word website 1:07
-    for (var i = 0; i < choosenWord.length; index++) {
+for (var i = 0; i < choosenWord.length; i++) {
         underScore.push("_");
         underScore.toString()
         document.getElementById("Henchman-text").innerHTML = underScore.join(" "); 
-        }
-console.log(underScore);
-           
+};
+        console.log(underScore);
 
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
 // Determines which key was pressed.
 var userGuess = event.key;
+console.log(userGuess);
+
 // Guessed Letter
 userpushkey.push(userGuess);
-HenchmanText.textContent=userpushkey;
 
+//document.onkeyup = function(onKeyUp) {
+//        letter = onKeyUp.keyCode;
+//        lettersGuessed = String.fromCharCode(letter);
+//        console.log(lettersGuessed);
 
+// This will alert correct and compare the letter guessed with the current word
+//if (userpushkey === underScore[0] || userpushkey === underScore[1] ||
+//            userpushkey === underScore[2] || userpushkey === underScore[3] ||
+//            userpushkey === underScore[4] || userpushkey === underScore[5] ||
+//            userpushkey === underScore[6] || userpushkey === underScore[7] ||
+//            userpushkey === underScore[8] || userpushkey === underScore[9] ||
+//            userpushkey === underScore[10] || userpushkey === underScore[11] ||
+//            userpushkey === underScore[12] || userpushkey === underScore[13] ||
+//            userpushkey === underScore[14] || userpushkey === underScore[15] ||
+//            userpushkey === underScore[16] || userpushkey === underScore[17] ||
+//            userpushkey === underScore[18] || userpushkey === underScore[19] ||
+//            userpushkey === underScore[20]) {
+            // alert("CORRECT!");
 //Users Guess
 // document.addEventListener('keypress', (event) => {
 //     let henchGuess =String.fromCharCode(event.henchGuess);
@@ -109,8 +125,7 @@ HenchmanText.textContent=userpushkey;
 //}
 
 //fillInWordWithLetter('j', chooseWord(words))
-     
-};
+}
 
 </script>
 </html>

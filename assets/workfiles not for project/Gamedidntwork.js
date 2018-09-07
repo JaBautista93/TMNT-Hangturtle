@@ -139,7 +139,97 @@ generateUnderscore
         // tiesText.textContent = "ties: " + ties;
       // }
     // };
-  </script>
+  
+    //userpushkey = String.fromCharCode(letter);
+    //for (var i = 0; i < choosenWord.length; i++) {
+    //if (userGuess === choosenWord.charAt(i)) {
+    //userpushkey[i]= userGuess;
+    //.textContent = userGuess;
+
+    //}    
+    //}
+
+
+
+
+    // //This will alert correct and compare the letter guessed with the current word
+    // if (userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[] || userpushkey === underScore[] ||
+    //     userpushkey === underScore[]) {
+    //     // alert("CORRECT!");
+
+    //     // replace progress Word underscore with letter pressed
+    //     document.getElementById("Henchman-Text").innerHTML = underScore.join(" ");
+    // } else {
+    //     alert("WRONG!");
+    //     document.getElementById("Turtle-text").innerHTML += userpushkey + " ";
+
+    //     // subtract a point from guesses left
+    //     guessesLeft--;
+    //     document.getElementById("guesses-left").innerHTML = guessesLeft;
+    // }
+
+    // //This code will tell the user the game is over along with a message about
+    // // their win streak, then it will reset the game while quickly showing 
+    // // what the word was
+    // if (guessesLeft === 0) {
+    //     alert("Game Over Turtles! Now for some Turtle Soup " + winsText + " wins! The henchman was " +
+    //         choosenWord);
+    //     location.reload();
+    //     document.getElementById("word-guess").innerHTML = choosenWord;
+    // }
+
+    // // this is the code that alerts you when you've won the game, then it will reset 
+    // // the current word to begin another round
+    // if (userpushkey === underScore) {
+    //     var phrases = ['Cowabunga!', 'Do not mess with Lean mean Turtles!', 'No Pizza for you Bro!',
+    //         'Should we go after?!? or Just let go cry to Shredder?!', 'We did it guys!',
+    //         'Turtleeee-Power!', 'Now you know about our Turtle-foo, come back for seconds anytime!'
+    //     ]
+    //     var nextRound = phrases[Math.floor(Math.random() * phrases.length)];
+    //     alert(nextRound);
+
+    //     // reset guesses left
+    //     guessesLeft = 10;
+    //     //document.getElementById("guesses-left").innerHTML = guessesLeft;
+
+    //     // reset letters guessed
+    //     //document.getElementById("letters-guessed").innerHTML = resetLettersGuessed;
+
+    //     // This code generates a new word to guess and then pushes out the blanks again
+    //     //choosenWord = Henchman[Math.floor(Math.random() * Henchman.length)].toUpperCase();
+
+    //     //underScore = [];
+    //     //for (var i = 0; i < choosenWord.length; i++) {
+    //     //underScore.push("__");
+    //     //underScore.toString()
+    //     //document.getElementById("word-guess").innerHTML = progressWord.join(" ");
+    //     //}
+
+    //     //mysteryWord = []
+    //     //for (var i = 0; i < currentWord.length; i++) {
+    //     //  mysteryWord.push(currentWord.charAt(i));
+    //     //   mysteryWord.toString(i)
+    //     // }
+    //     //console.log(currentWord);
+    //     //console.log(progressWord);
+    //     //console.log(mysteryWord);
+
+    //     // Add to the win total
+    //     winsText++;
+    //     document.getElementById("wins-text").innerHTML = winsText;
+    //}
+    //}
+  
+    </script>
 
 </body>
 

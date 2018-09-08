@@ -11,7 +11,7 @@ var questionElement = document.getElementById('question');
 var answerElement = document.getElementById('answer');
 var wins = document.getElementById("wins");
 var losses = document.getElementById("Losses");
-
+var letters = document.getElementById("Letters Guess Left")
 
 // 1. display question
 var answers = [
@@ -99,7 +99,7 @@ function checkIfLetterExists (letter) {
     letters--;
     //alert('Wrong Answer now your turtle soup!')
   } if (letters === 0){
-    alert('Game over turtles')
+    alert('You had 15 tries loser time for turtle soup')
     resetGame();
   }
 }

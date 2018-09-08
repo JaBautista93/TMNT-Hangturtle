@@ -2,14 +2,17 @@
     // var directionsText = document.getElementById("directions-text");
     // var HenchmanText = document.getElementById("Henchman-text");
     // var TurtlesText = document.getElementById("Turtles-text");
-    // var winsText = document.getElementById("wins-text");
     // var lossesText = document.getElementById("losses-text");
     // var tiesText = document.getElementById("ties-text");
     // var guessesleft = document.getElementById("guesses-left")
     // Did not get a chance to add more functionality to the game
     
-var questionElement = document.getElementById('question')
-var answerElement = document.getElementById('answer')
+var questionElement = document.getElementById('question');
+var answerElement = document.getElementById('answer');
+var wins = document.getElementById("wins");
+var losses = document.getElementById("Losses");
+
+
 // 1. display question
 var answers = [
     'Bebop', 
@@ -39,6 +42,11 @@ var questionMap = {
     'Foot Clan': "Loyal to Shredder and are kung fu masters but never as good as the turtles kung fu", 
 }
 
+//wins and losses
+var wins = 0
+var losses = 0
+
+// this chooses a random item
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -69,6 +77,9 @@ generateUnderscores()
 
 // 3. if user selects letter that exists in answer array
 //    then replace underscores index with that letter (e.key)
+//wins and losses
+var letters = 15
+
 function checkIfLetterExists (letter) {
   var originalBlanks = checkForBlanks()
   
@@ -85,7 +96,11 @@ function checkIfLetterExists (letter) {
       resetGame()
     }, 2000)
   } else if (originalBlanks === checkForBlanks()) {
-    alert('Wrong Answer now your turtle soup!')
+    letters--;
+    //alert('Wrong Answer now your turtle soup!')
+  } if (letters === 0){
+    alert('Game over turtles')
+    resetGame();
   }
 }
 

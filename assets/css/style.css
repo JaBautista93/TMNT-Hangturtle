@@ -3,7 +3,7 @@ body {
     font-size: 18px;
     line-height: 34px;
     color: #777;
-    background: url("/Users/jbautista/Code/TMNT-Hangturtle-Game/446661.png") !important;
+    background: url("../images/446661.png") !important;
     background-size: 960px 360px;  
   }
   
@@ -59,15 +59,15 @@ body {
   
   /* header */
   
-.bg {
+/* .bg {
     background: url("/Users/jbautista/Code/TMNT-Hangturtle-Game/assets/images/rooftop_by_emanshiu-d7uuqpo.jpg");
     position: fixed;
     width: 100%;
     height: 100%; /*same height as jumbotron */
-    top:0;
+    /* top:0;
     left:0;
     z-index: -1;
-  }
+  /* } */ 
   
   #masthead {
     position: relative;;
@@ -158,12 +158,12 @@ body {
     border: 1px solid #ddd;
   }
   
-  // This is for screen resizing //
+  /* // This is for screen resizing // */
   
-  // Extra small devices (portrait phones, less than 576px)
-  // No media query for `xs` since this is the default in Bootstrap
+  /* // Extra small devices (portrait phones, less than 576px) */
+  /* // No media query for `xs` since this is the default in Bootstrap */
   
-  // Small devices (landscape phones, 576px and up)
+  /* // Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) {
     .main-section {
       float: none;
@@ -177,7 +177,7 @@ body {
       }
     }
   
-  // Medium devices (tablets, 768px and up)
+  /* // Medium devices (tablets, 768px and up) */
   @media (min-width: 768px) { 
     .main-section {
       float: none;
@@ -187,11 +187,11 @@ body {
       }
     }
   
-  // Large devices (desktops, 992px and up)
+  /* // Large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     
   }
-  
+  /* // Marin 01 if you want to put spaces in the word  */
   /* // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) { ... } */
   

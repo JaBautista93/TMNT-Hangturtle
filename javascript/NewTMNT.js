@@ -8,8 +8,8 @@
     // var guessesleft = document.getElementById("guesses-left")
     // Did not get a chance to add more functionality to the game
     
-    var questionElement = document.getElementById('question')
-    var answerElement = document.getElementById('answer')
+var questionElement = document.getElementById('question')
+var answerElement = document.getElementById('answer')
 // 1. display question
 var answers = [
     'Bebop', 

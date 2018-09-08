@@ -1,95 +1,115 @@
 //Create variables that hold references to the places in the HTML where we want to display things.
-    var directionsText = document.getElementById("directions-text");
-    var HenchmanText = document.getElementById("Henchman-text");
-    var TurtlesText = document.getElementById("Turtles-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var tiesText = document.getElementById("ties-text");
-    var guessesleft = document.getElementById("guesses-left")
+    // var directionsText = document.getElementById("directions-text");
+    // var HenchmanText = document.getElementById("Henchman-text");
+    // var TurtlesText = document.getElementById("Turtles-text");
+    // var winsText = document.getElementById("wins-text");
+    // var lossesText = document.getElementById("losses-text");
+    // var tiesText = document.getElementById("ties-text");
+    // var guessesleft = document.getElementById("guesses-left")
+    // Did not get a chance to add more functionality to the game
+    
+    var questionElement = document.getElementById('question')
+    var answerElement = document.getElementById('answer')
+// 1. display question
+var answers = [
+    'Bebop', 
+    'Krang', 
+    'Rat King', 
+    'Rocksteady', 
+    'Shredder', 
+    'Slash',
+    'Baxter Stockman', 
+    'General Traag', 
+    'Dragon Lord',
+    'Rock Soliders', 
+    'Foot Clan', 
+]
 
-//this array contains our henchman for the game
-var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash",
-    "Baxter Stockman", "General Traag", "Tokka", "Razhar", "Dragon Lord",
-    "Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface",
-    "Hun", "Triceratons"
-];
-
-//Guessed Letters
-var GuessedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-    "y", "z"
-];
-
-//this variable will holds the number of guess left
-var guessesleft = 10;
-
-
-//this variable will count the number of times we win
-var winsText = 0;
-var resetGuess = ""
-
-//this is empty array to push the letters from the current word choosen
-let underScore = [];
-
-//this is empty arrays to push guesses to the page
-let userpushkey = [];
-
-//process for selecting word
-let randNum = [Math.floor(Math.random() * Henchman.length)];
-console.log(randNum);
-let choosenWord = Henchman[randNum];
-console.log(choosenWord.toUpperCase());
-
-//creating underscores based on lenght of word
-for (var i = 0; i < choosenWord.length; i++) {
-    if (choosenWord[i] === " ") {
-        underScore.push(" ")
-     } else {
-        underScore.push("_")
-     }
+var questionMap = {
+    'Bebop': "Best friends with Rocksteady, looks like a hog", 
+    'Krang': "Alien war lord trying to take over earth with the Technadrone", 
+    'Rat King': "Lives in the sewer, loves rats, and is an enemy of the turtles", 
+    'Rocksteady': "BFF's with Bebop, Looks like a Rino", 
+    'Shredder': "Turtles archnemis, Stole Master Rosi chick", 
+    'Slash': "Like the turles, hes a mutant but he carrys a big stick and likes to smash things",
+    'Baxter Stockman': "Loves to cause a buzz in New York City, always looking to score himself some honey", 
+    'General Traag': "Works for Krang, is his number 2 if shredder wasn't around", 
+    'Dragon Lord': "An Alien sworn to get the turles after they visted his planent and pissed him off",
+    'Rock Soliders': "Loyal to krang, from Demension X", 
+    'Foot Clan': "Loyal to Shredder and are kung fu masters but never as good as the turtles kung fu", 
 }
-    //underScore.toString()
-    document.getElementById("Henchman-text").innerHTML = underScore.join(" ");
 
-console.log(underScore);
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// create random index to grab random answer
+var randomIndex = getRandomInt(0, (answers.length - 1))
+// grab the random answer
+var randomAnswer = answers[randomIndex]
+// grab question for random answer
+var question = questionMap[randomAnswer]
+// set question inside #question element
+questionElement.innerHTML = question
 
-//Determines which key was pressed. use jQuery for getting key presses,  Need to store
-// the function, look up wheel of fortune
-       document.onkeyup = function (event) {
-        var userGuess = event.key;
-        userpushkey.push(userGuess);
-        userpushkey.toString()
-        document.getElementById("Turtles-text").innerHTML = userpushkey.join(" ");
-        console.log(userpushkey);
-//game alert logic look up word matching with jQuery and Javascript, full in the blank
+// 2. display blank underscores for correct answer
+var underscores = []
 
-        function guessLetter(letter) {
-            var goodGuess = false;
-            var keepGuessing = false;
+// randomAnswer is a string, turn it into an array
+var answerArray = randomAnswer.split('')
+// generate blank underscores for length of answer
+function generateUnderscores () {
+  underscores = []
+  for (var i = 0; i < answerArray.length; i++) {
+    answerArray[i] === ' ' ? underscores.push(' ') : underscores.push('_')
+  }
+  answerElement.innerHTML = underscores.join('')
+}
+// invoke!
+generateUnderscores()
 
-            for (let i = 0; i < choosenWord.length; i++) {
-                if (choosenWord[i] === letter) {
-                    GuessedLetters[i] = letter;
-                    goodGuess = true;
-                    GuessedLetters.push(underScore);
-                    GuessedLetters.toString()
-                    document.getElementById("Henchman-text").innerHTML = GuessedLetters.join(" ")
-                    console.log(GuessedLetters);
-                }
-                if (GuessedLetters(i) == "") {
-                    keepGuessing = true;
-                    console.log(keepGuessing);
-                }
-                if (goodGuess) {
-                    console.log("You got this Ninja Son! Don't give up on no matter how bad you want pizza");
-                    console.log(GuessedLetters.join(choosenWord));
-                    if (!keepGuessing) {
-                        console.log('Cowabunga dude, you did it!');
-                        console.log(keepGuessing);
-                    }
-                } else {
-                    console.log('O No we are going to be turtle soup!');
-                }
-            }
-        }
+// 3. if user selects letter that exists in answer array
+//    then replace underscores index with that letter (e.key)
+function checkIfLetterExists (letter) {
+  var originalBlanks = checkForBlanks()
+  
+  for (var i = 0; i < answerArray.length; i++) {
+    if (letter.toLowerCase() === answerArray[i].toLowerCase()) {
+      underscores[i] = answerArray[i]
+      // update dom element that has underscores array
+      answerElement.innerHTML = underscores.join('')
+    } 
+  }
+  
+  if (checkForBlanks() === 0) {
+    setTimeout(function () {
+      resetGame()
+    }, 2000)
+  } else if (originalBlanks === checkForBlanks()) {
+    alert('Wrong Answer now your turtle soup!')
+  }
+}
+
+function checkForBlanks () {
+  var blanks = 0
+
+  for (var i = 0; i < underscores.length; i++) {
+    if (underscores[i] === '_') {
+      blanks += 1
     }
+  }
+  
+  return blanks
+}
+
+function resetGame () {
+  randomIndex = getRandomInt(0, (answers.length - 1))
+  randomAnswer = answers[randomIndex]
+  answerArray = randomAnswer.split('')
+  question = questionMap[randomAnswer]
+  questionElement.innerHTML = question
+  generateUnderscores()
+}
+
+document.addEventListener('keydown', function (e) {
+  checkIfLetterExists(e.key)
+})

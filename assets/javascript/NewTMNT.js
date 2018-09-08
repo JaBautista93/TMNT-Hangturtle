@@ -1,32 +1,13 @@
-<!doctype html>
-<html lang="en-us">
-
-<head>
-  <meta charset="UTF-8">
-  <title>TMNT | Tribute Game</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
-   <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
-   <script
-   src="https://code.jquery.com/jquery-3.3.1.js"
-   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-   crossorigin="anonymous"></script>
-   <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity = "sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"crossorigin = "anonymous" >
-</head>
-
-
-<body>
-<script type="text/javascript"> 
 //Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
-var TurtlesText = document.getElementById("Turtles-text");
-var HenchmanText = document.getElementById("Henchman-text");
-var winsText = document.getElementById("wins-text");
-var lossesText = document.getElementById("losses-text");
-var tiesText = document.getElementById("ties-text");
-var guessesleft = document.getElementById("guesses-left")
+    var HenchmanText = document.getElementById("Henchman-text");
+    var TurtlesText = document.getElementById("Turtles-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var tiesText = document.getElementById("ties-text");
+    var guessesleft = document.getElementById("guesses-left")
 
-// this array contains our henchman for the game
+//this array contains our henchman for the game
 var Henchman = ["Bebop", "Krang", "Rat King", "Rocksteady", "Shredder", "Slash",
     "Baxter Stockman", "General Traag", "Tokka", "Razhar", "Dragon Lord",
     "Tatsu", "Rock Soliders", "Foot Clan", "Leather Head", "Fishface",
@@ -61,10 +42,15 @@ console.log(choosenWord.toUpperCase());
 
 //creating underscores based on lenght of word
 for (var i = 0; i < choosenWord.length; i++) {
-    underScore.push("_");
-    underScore.toString()
-    document.getElementById("Henchman-text").innerHTML = underScore.join(" ");
+    if (choosenWord[i] === " ") {
+        underScore.push(" ")
+     } else {
+        underScore.push("_")
+     }
 }
+    //underScore.toString()
+    document.getElementById("Henchman-text").innerHTML = underScore.join(" ");
+
 console.log(underScore);
 
 //Determines which key was pressed. use jQuery for getting key presses,  Need to store
@@ -75,8 +61,7 @@ console.log(underScore);
         userpushkey.toString()
         document.getElementById("Turtles-text").innerHTML = userpushkey.join(" ");
         console.log(userpushkey);
-
-        //game alert logic look up word matching with jQuery and Javascript, full in the blank
+//game alert logic look up word matching with jQuery and Javascript, full in the blank
 
         function guessLetter(letter) {
             var goodGuess = false;
@@ -108,9 +93,3 @@ console.log(underScore);
             }
         }
     }
-
-</script>
-   
-   
-</body>
-</html>
